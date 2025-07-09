@@ -1,0 +1,116 @@
+/* Content Areas */
+.welcome-content,
+.graph-creator-content,
+.algorithm-visualizer-content,
+.data-manager-content,
+.settings-content {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.welcome-content h2,
+.graph-creator-content h2,
+.algorithm-visualizer-content h2,
+.data-manager-content h2,
+.settings-content h2 {
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.welcome-content h3,
+.graph-creator-content h3,
+.algorithm-visualizer-content h3,
+.data-manager-content h3,
+.settings-content h3 {
+  margin: 20px 0 12px 0;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.welcome-content p,
+.graph-creator-content p,
+.algorithm-visualizer-content p,
+.data-manager-content p,
+.settings-content p {
+  margin: 0 0 12px 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.welcome-content ul,
+.graph-creator-content ul,
+.algorithm-visualizer-content ul,
+.data-manager-content ul,
+.settings-content ul {
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+  color: var(--text-secondary);
+}
+
+.welcome-content li,
+.graph-creator-content li,
+.algorithm-visualizer-content li,
+.data-manager-content li,
+.settings-content li {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.welcome-content strong,
+.graph-creator-content strong,
+.algorithm-visualizer-content strong,
+.data-manager-content strong,
+.settings-content strong {
+  color: var(--text-primary);
+}
+
+.welcome-content em,
+.graph-creator-content em,
+.algorithm-visualizer-content em,
+.data-manager-content em,
+.settings-content em {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.placeholder-area {
+  background: var(--surface);
+  border-radius: 6px;
+  padding: 20px;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+}
+
+.placeholder-area h3 {
+  margin: 0 0 12px 0;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  height: 100%;
+  padding: 32px;
+  text-align: center;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 14px;
+} 

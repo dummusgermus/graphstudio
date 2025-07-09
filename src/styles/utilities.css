@@ -1,0 +1,61 @@
+/* Utility Classes */
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 8px;
+  }
+  
+  .navbar-brand {
+    margin-right: 16px;
+  }
+  
+  .window {
+    margin: 4px;
+  }
+  
+  .split-pane {
+    min-width: 150px;
+    min-height: 120px;
+  }
+}
+
+/* Responsive adjustments for Graph Creator */
+@media (max-width: 768px) {
+  .graph-controls-panel-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .canvas-controls {
+    flex-direction: column;
+  }
+
+  .graph-stats {
+    flex-direction: column;
+    gap: 8px;
+  }
+} 

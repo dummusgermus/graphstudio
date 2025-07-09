@@ -1,0 +1,368 @@
+/* Window System */
+.window-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  min-height: 0; /* Important for flex children to shrink */
+}
+
+.window {
+  background: var(--background);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  position: relative;
+  flex: 1;
+  height: 100%;
+  min-height: 0; /* Important for flex children to shrink */
+}
+
+.window-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  user-select: none;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.window-title-container {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Custom Window Title Dropdown */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-dropdown-trigger {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  padding: 2px 20px 2px 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  min-width: 0;
+  max-width: 100%;
+  transition: color 0.12s ease, background-color 0.12s ease;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 12px;
+}
+
+.custom-dropdown-trigger:hover {
+  color: var(--text-primary);
+  background-color: rgba(128, 128, 128, 0.05);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e293b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+.custom-dropdown-trigger:focus {
+  color: var(--text-primary);
+  background-color: rgba(128, 128, 128, 0.08);
+  outline: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e293b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Dark theme dropdown arrow */
+[data-theme="dark"] .custom-dropdown-trigger {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c0c0c0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+[data-theme="dark"] .custom-dropdown-trigger:hover,
+[data-theme="dark"] .custom-dropdown-trigger:focus {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+}
+
+/* Custom Dropdown Menu */
+.custom-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+  padding: 4px 0;
+}
+
+.custom-dropdown.open .custom-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.custom-dropdown-item {
+  display: block;
+  padding: 8px 16px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: 0;
+  letter-spacing: 0;
+}
+
+.custom-dropdown-item::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 0;
+  height: 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  border-radius: 0 2px 2px 0;
+  transform: translateY(-50%);
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-dropdown-item:hover {
+  color: var(--text-primary);
+  padding-left: 20px;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.08) 0%, transparent 100%);
+}
+
+.custom-dropdown-item:hover::before {
+  width: 3px;
+}
+
+.custom-dropdown-item:active {
+  transform: scale(0.98);
+}
+
+.custom-dropdown-item.selected {
+  color: var(--text-primary);
+  font-weight: 500;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.12) 0%, transparent 100%);
+}
+
+.window-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.window-control {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.08s ease;
+}
+
+.window-control:hover {
+  background-color: var(--border);
+}
+
+.window-control.close {
+  background-color: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.window-control.close:hover {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+/* Split Buttons positioned at edges */
+.split-buttons {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.split-button {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--text-secondary);
+  border: 1px solid var(--background);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: normal;
+  color: var(--background);
+  transition: all 0.12s ease;
+  pointer-events: all;
+  opacity: 0;
+  transform: scale(0.8);
+  z-index: 100;
+}
+
+.split-button:hover {
+  background: var(--text-primary);
+  color: var(--background);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.split-button.top {
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+}
+
+.split-button.top:hover {
+  transform: translateX(-50%) scale(1);
+}
+
+.split-button.right {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.split-button.right:hover {
+  transform: translateY(-50%) scale(1);
+}
+
+.split-button.bottom {
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+}
+
+.split-button.bottom:hover {
+  transform: translateX(-50%) scale(1);
+}
+
+.split-button.left {
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%) scale(0.8);
+}
+
+.split-button.left:hover {
+  transform: translateY(-50%) scale(1);
+}
+
+/* Proximity-based visibility - buttons only appear when cursor is directly over them */
+.split-button::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  right: -40px;
+  bottom: -40px;
+  pointer-events: all;
+}
+
+.split-button.top:hover,
+.split-button.right:hover,
+.split-button.bottom:hover,
+.split-button.left:hover {
+  opacity: 1;
+}
+
+.window-content {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+  background: var(--background);
+  min-height: 0; /* Important: allows the content to shrink and enable scrolling */
+  position: relative;
+}
+
+/* Remove padding for graph creator to allow full-screen canvas */
+.window-content:has(.graph-creator-container) {
+  padding: 0;
+}
+
+/* Split Layout */
+.split-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+  height: 100%;
+  min-height: 0; /* Important for flex children to shrink */
+}
+
+.split-horizontal {
+  flex-direction: row;
+}
+
+.split-vertical {
+  flex-direction: column;
+}
+
+.split-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 0; /* Changed from 150px to 0 - allows proper shrinking */
+  height: 100%;
+  overflow: hidden; /* Prevents the pane itself from overflowing */
+}
+
+/* Resizer */
+.resizer {
+  background: var(--border);
+  transition: background-color 0.15s ease;
+  z-index: 10;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.resizer:hover {
+  background: var(--border-hover);
+}
+
+.resizer-horizontal {
+  width: 4px !important;
+  min-width: 4px !important;
+  max-width: 4px !important;
+  cursor: col-resize;
+  flex-basis: 4px !important;
+}
+
+.resizer-vertical {
+  height: 4px !important;
+  min-height: 4px !important;
+  max-height: 4px !important;
+  cursor: row-resize;
+  flex-basis: 4px !important;
+}
+
+.resizer.resizing {
+  background: var(--text-secondary);
+}
+
+/* Focus states */
+.window:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+} 

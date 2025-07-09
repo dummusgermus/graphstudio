@@ -1,0 +1,14 @@
+/* GraphStudio - Modular CSS Architecture */
+
+/* Base styles - CSS variables, reset, and core layout */
+@import './styles/base.css';
+
+/* Component styles */
+@import './styles/components/navbar.css';
+@import './styles/components/tabs.css';
+@import './styles/components/windows.css';
+@import './styles/components/content.css';
+@import './styles/components/graph-creator.css';
+
+/* Utility classes and responsive styles */
+@import './styles/utilities.css';

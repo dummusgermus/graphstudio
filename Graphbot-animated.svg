@@ -1,0 +1,18 @@
+<svg width="505" height="538" viewBox="0 0 505 538" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Graphbot">
+<rect id="face_base" y="139" width="505" height="399" rx="57" fill="#8B5CF6"/>
+<circle id="antenna_top" cx="252.5" cy="53.5" r="53.5" fill="#8B5CF6"/>
+<rect id="antenna" x="238" y="77" width="31" height="73" fill="#8B5CF6"/>
+<path id="mouth" d="M195.346 403.041C190.782 410.014 186.218 416.986 181.654 423.959C183.658 425.394 185.745 426.833 187.858 428.226C206.083 440.372 228.473 449.622 252.25 450.157C277.722 450.976 302.276 441.66 321.863 428.24C323.981 426.803 326.029 425.339 328.115 423.777C323.372 416.926 318.628 410.074 313.885 403.223C311.983 404.421 310.138 405.529 308.256 406.61C290.699 416.75 271.841 422.749 253.001 422.167C235.376 421.752 217.930 415.696 201.149 406.361C199.211 405.292 197.262 404.172 195.346 403.041Z" fill="white"/>
+<circle id="eye_left" cx="140" cy="293" r="80" fill="white"/>
+<circle id="eye_right" cx="369" cy="291" r="80" fill="white"/>
+<path id="pupil_movement_radius_left" d="M140 228.5C174.529 228.5 202.5 255.822 202.5 289.5C202.5 323.178 174.529 350.5 140 350.5C105.471 350.5 77.5 323.178 77.5 289.5C77.5 255.822 105.471 228.5 140 228.5Z"/>
+<path id="pupil_movement_radius_right" d="M369 228.5C403.529 228.5 431.5 255.822 431.5 289.5C431.5 323.178 403.529 350.5 369 350.5C334.471 350.5 306.5 323.178 306.5 289.5C306.5 255.822 334.471 228.5 369 228.5Z"/>
+<circle id="pupil_right" cx="369" cy="289" r="32" fill="#8B5CF6"/>
+<rect id="tear_sack_right" x="298" y="351" width="141" height="40" fill="#8B5CF6"/>
+<rect id="tear_sack_left" x="60" y="351" width="141" height="40" fill="#8B5CF6"/>
+<rect id="eyelids" x="42" y="193" width="425" height="10" fill="#8B5CF6"/>
+<circle id="pupil_left" cx="140" cy="293" r="32" fill="#8B5CF6"/>
+<rect id="eyelids_expansion_range" x="42.5" y="193.5" width="424" height="157"/>
+</g>
+</svg> 
